@@ -640,29 +640,6 @@ try{(new g(100,"r","QSI_S_ZN_5sRdYBSo6nSAxAq","https://zn5srdybso6nsaxaq-qhealth
 								    <div class="widget review-listing">
 								        <ul class="comments-list">
 								            <!-- Existing reviews will be here -->
-								            <li>
-								                <div class="comment">
-								                    <img class="avatar avatar-sm rounded-circle" alt="User Image" src="assets/img/patients/patient.jpg">
-								                    <div class="comment-body">
-								                        <div class="meta-data">
-								                            <span class="comment-author">Richard Wilson</span>
-								                            <span class="comment-date">Reviewed 2 Days ago</span>
-								                            <div class="review-count rating">
-								                                <i class="fas fa-star filled"></i>
-								                                <i class="fas fa-star filled"></i>
-								                                <i class="fas fa-star filled"></i>
-								                                <i class="fas fa-star filled"></i>
-								                                <i class="fas fa-star filled"></i>
-								                            </div>
-								                        </div>
-								                        <p class="recommended"><i class="far fa-thumbs-up"></i> I recommend this doctor</p>
-								                        <p class="comment-content">
-								                            Dr. Elder is an exceptional cardiologist! I've been seeing him for my heart condition for the past two years, and I couldn't be more impressed. He takes the time to explain everything in detail and always makes sure I understand my treatment options. His expertise and compassionate approach have significantly improved my quality of life. I highly recommend Dr. Elder to anyone seeking top-notch cardiac care.
-								                        </p>
-								                    </div>
-								                </div>
-								            </li>
-								            <!-- Add other existing reviews here -->
 								        </ul>
 								
 								        <!-- Show All -->
@@ -682,6 +659,10 @@ try{(new g(100,"r","QSI_S_ZN_5sRdYBSo6nSAxAq","https://zn5srdybso6nsaxaq-qhealth
 								
 								        <!-- Write Review Form -->
 								        <form id="reviewForm" onsubmit="event.preventDefault(); addReview();">
+								            <div class="form-group">
+								                <label>Your Name</label>
+								                <input type="text" id="reviewer_name" class="form-control" required>
+								            </div>
 								            <div class="form-group">
 								                <label>Review</label>
 								                <div class="star-rating">
@@ -709,7 +690,7 @@ try{(new g(100,"r","QSI_S_ZN_5sRdYBSo6nSAxAq","https://zn5srdybso6nsaxaq-qhealth
 								            </div>
 								            <div class="form-group">
 								                <label>Title of your review</label>
-								                <input class="form-control" type="text" placeholder="If you could say it in one sentence, what would you say?">
+								                <input class="form-control" type="text" id="review_title" placeholder="If you could say it in one sentence, what would you say?">
 								            </div>
 								            <div class="form-group">
 								                <label>Your review</label>
@@ -720,7 +701,7 @@ try{(new g(100,"r","QSI_S_ZN_5sRdYBSo6nSAxAq","https://zn5srdybso6nsaxaq-qhealth
 								            <div class="form-group">
 								                <div class="terms-accept">
 								                    <div class="custom-checkbox">
-								                       <input type="checkbox" id="terms_accept">
+								                       <input type="checkbox" id="terms_accept" required>
 								                       <label for="terms_accept">I have read and accept <a href="#">Terms &amp; Conditions</a></label>
 								                    </div>
 								                </div>
@@ -1096,12 +1077,13 @@ try{(new g(100,"r","QSI_S_ZN_5sRdYBSo6nSAxAq","https://zn5srdybso6nsaxaq-qhealth
 		<script>
 function addReview() {
     // Get form values
+    const name = document.getElementById('reviewer_name').value;
     const rating = document.querySelector('input[name="rating"]:checked');
-    const title = document.querySelector('input[placeholder="If you could say it in one sentence, what would you say?"]').value;
+    const title = document.getElementById('review_title').value;
     const review = document.getElementById('review_desc').value;
     
     // Check if all fields are filled
-    if (!rating || !title || !review) {
+    if (!name || !rating || !title || !review) {
         alert("Please fill in all fields before submitting your review.");
         return;
     }
@@ -1110,10 +1092,10 @@ function addReview() {
     const newReview = `
         <li>
             <div class="comment">
-                <img class="avatar avatar-sm rounded-circle" alt="User Image" src="assets/img/patients/patient-default.jpg">
+                <img class="avatar avatar-sm rounded-circle" alt="User Image" src="assets/img/patients/patient1.jpg">
                 <div class="comment-body">
                     <div class="meta-data">
-                        <span class="comment-author">Anonymous User</span>
+                        <span class="comment-author">${name}</span>
                         <span class="comment-date">Reviewed Just Now</span>
                         <div class="review-count rating">
                             ${generateStars(rating.value)}
@@ -1150,6 +1132,6 @@ document.getElementById('review_desc').addEventListener('input', function() {
     document.getElementById('chars').textContent = remaining;
 });
 </script>
-		
+
 	</body>
 </html>
