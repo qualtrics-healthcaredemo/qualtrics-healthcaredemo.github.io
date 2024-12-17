@@ -1,134 +1,136 @@
-                                                      <!DOCTYPE html>
-                                                    <!DOCTYPE html>
-                      <html lang="en">
-                      	<head>
-                      		<!-- ... (keep your existing head content) ... -->
-                      	</head>
-                      	<body>
-                      		<!-- ... (keep your existing body content up to the review section) ... -->
-                      
-                      		<!-- Reviews Content -->
-                      		<div role="tabpanel" id="doc_reviews" class="tab-pane fade">
-                      			<!-- Review Listing -->
-                      			<div class="widget review-listing">
-                      				<ul class="comments-list">
-                      					<!-- Existing reviews will be here -->
-                      				</ul>
-                      
-                      				<!-- Show All -->
-                      				<div class="all-feedback text-center">
-                      					<a href="#" class="btn btn-primary btn-sm">
-                      						Show all feedback <strong>(167)</strong>
-                      					</a>
-                      				</div>
-                      				<!-- /Show All -->
-                      			</div>
-                      			<!-- /Review Listing -->
-                      
-                      			<!-- Write Review -->
-                      			<div class="write-review">
-                      				<h4>Write a review for <strong>Dr. Darren Elder</strong></h4>
-                      
-                      				<!-- Write Review Form -->
-                      				<form id="reviewForm" onsubmit="event.preventDefault(); addReview();">
-                      					<div class="form-group">
-                      						<label>Review</label>
-                      						<div class="star-rating">
-                      							<input id="star-5" type="radio" name="rating" value="5">
-                      							<label for="star-5" title="5 stars">
-                      								<i class="active fa fa-star"></i>
-                      							</label>
-                      							<input id="star-4" type="radio" name="rating" value="4">
-                      							<label for="star-4" title="4 stars">
-                      								<i class="active fa fa-star"></i>
-                      							</label>
-                      							<input id="star-3" type="radio" name="rating" value="3">
-                      							<label for="star-3" title="3 stars">
-                      								<i class="active fa fa-star"></i>
-                      							</label>
-                      							<input id="star-2" type="radio" name="rating" value="2">
-                      							<label for="star-2" title="2 stars">
-                      								<i class="active fa fa-star"></i>
-                      							</label>
-                      							<input id="star-1" type="radio" name="rating" value="1">
-                      							<label for="star-1" title="1 star">
-                      								<i class="active fa fa-star"></i>
-                      							</label>
-                      						</div>
-                      					</div>
-                      					<!-- ... (rest of the form remains the same) ... -->
-                      				</form>
-                      				<!-- /Write Review Form -->
-                      			</div>
-                      			<!-- /Write Review -->
-                      		</div>
-                      		<!-- /Reviews Content -->
-                      
-                      		<!-- ... (keep your existing content after the review section) ... -->
-                      
-                      		<!-- Add this script just before the closing </body> tag -->
-                      		<script>
-                      		function addReview() {
-                      			// Get form values
-                      			const rating = document.querySelector('input[name="rating"]:checked');
-                      			const title = document.querySelector('input[placeholder="If you could say it in one sentence, what would you say?"]').value;
-                      			const review = document.getElementById('review_desc').value;
-                      			
-                      			// Check if all fields are filled
-                      			if (!rating || !title || !review) {
-                      				alert("Please fill in all fields before submitting your review.");
-                      				return;
-                      			}
-                      
-                      			// Create new review HTML
-                      			const newReview = `
-                      				<li>
-                      					<div class="comment">
-                      						<img class="avatar avatar-sm rounded-circle" alt="User Image" src="assets/img/patients/patient-default.jpg">
-                      						<div class="comment-body">
-                      							<div class="meta-data">
-                      								<span class="comment-author">Anonymous User</span>
-                      								<span class="comment-date">Reviewed Just Now</span>
-                      								<div class="review-count rating">
-                      									${generateStars(rating.value)}
-                      								</div>
-                      							</div>
-                      							<p class="recommended"><i class="far fa-thumbs-up"></i> I recommend this doctor</p>
-                      							<p class="comment-content">
-                      								<strong>${title}</strong><br>
-                      								${review}
-                      							</p>
-                      						</div>
-                      					</div>
-                      				</li>
-                      			`;
-                      			
-                      			// Add new review to the top of the list
-                      			const reviewsList = document.querySelector('.comments-list');
-                      			reviewsList.insertAdjacentHTML('afterbegin', newReview);
-                      			
-                      			// Limit to 10 visible reviews
-                      			const reviewItems = document.querySelectorAll('.comments-list > li');
-                      			if (reviewItems.length > 10) {
-                      				reviewItems[reviewItems.length - 1].remove();
-                      			}
-                      
-                      			// Clear form
-                      			document.getElementById('reviewForm').reset();
-                      		}
-                      
-                      		function generateStars(rating) {
-                      			return Array(5).fill().map((_, i) => 
-                      				`<i class="fas fa-star ${i < parseInt(rating) ? 'filled' : ''}"></i>`
-                      			).join('');
-                      		}
-                      
-                      		// Update character count
-                      		document.getElementById('review_desc').addEventListener('input', function() {
-                      			const remaining = 100 - this.value.length;
-                      			document.getElementById('chars').textContent = remaining;
-                      		});
-                      		</script>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- ... (keep your existing head content) ... -->
+	</head>
+	<body>
+		<!-- ... (keep your existing body content up to the review section) ... -->
+
+		<!-- Reviews Content -->
+		<div role="tabpanel" id="doc_reviews" class="tab-pane fade">
+			<!-- Review Listing -->
+			<div class="widget review-listing">
+				<ul class="comments-list">
+					<!-- Existing reviews will be here -->
+				</ul>
+
+				<!-- Show All -->
+				<div class="all-feedback text-center">
+					<a href="#" class="btn btn-primary btn-sm">
+						Show all feedback <strong>(167)</strong>
+					</a>
+				</div>
+				<!-- /Show All -->
+			</div>
+			<!-- /Review Listing -->
+
+			<!-- Write Review -->
+			<div class="write-review">
+				<h4>Write a review for <strong>Dr. Darren Elder</strong></h4>
+
+				<!-- Write Review Form -->
+				<form id="reviewForm" onsubmit="event.preventDefault(); addReview();">
+					<div class="form-group">
+						<label>Review</label>
+						<div class="star-rating">
+							<input id="star-5" type="radio" name="rating" value="5">
+							<label for="star-5" title="5 stars">
+								<i class="active fa fa-star"></i>
+							</label>
+							<input id="star-4" type="radio" name="rating" value="4">
+							<label for="star-4" title="4 stars">
+								<i class="active fa fa-star"></i>
+							</label>
+							<input id="star-3" type="radio" name="rating" value="3">
+							<label for="star-3" title="3 stars">
+								<i class="active fa fa-star"></i>
+							</label>
+							<input id="star-2" type="radio" name="rating" value="2">
+							<label for="star-2" title="2 stars">
+								<i class="active fa fa-star"></i>
+							</label>
+							<input id="star-1" type="radio" name="rating" value="1">
+							<label for="star-1" title="1 star">
+								<i class="active fa fa-star"></i>
+							</label>
+						</div>
+					</div>
+					<!-- ... (rest of the form remains the same) ... -->
+				</form>
+				<!-- /Write Review Form -->
+			</div>
+			<!-- /Write Review -->
+		</div>
+		<!-- /Reviews Content -->
+
+		<!-- ... (keep your existing content after the review section) ... -->
+
+		<!-- Add this script just before the closing </body> tag -->
+		<script>
+		function addReview() {
+			// Get form values
+			const rating = document.querySelector('input[name="rating"]:checked');
+			const title = document.querySelector('input[placeholder="If you could say it in one sentence, what would you say?"]').value;
+			const review = document.getElementById('review_desc').value;
+			
+			// Check if all fields are filled
+			if (!rating || !title || !review) {
+				alert("Please fill in all fields before submitting your review.");
+				return;
+			}
+
+			// Create new review HTML
+			const newReview = `
+				<li>
+					<div class="comment">
+						<img class="avatar avatar-sm rounded-circle" alt="User Image" src="assets/img/patients/patient-default.jpg">
+						<div class="comment-body">
+							<div class="meta-data">
+								<span class="comment-author">Anonymous User</span>
+								<span class="comment-date">Reviewed Just Now</span>
+								<div class="review-count rating">
+									${generateStars(rating.value)}
+								</div>
+							</div>
+							<p class="recommended"><i class="far fa-thumbs-up"></i> I recommend this doctor</p>
+							<p class="comment-content">
+								<strong>${title}</strong><br>
+								${review}
+							</p>
+						</div>
+					</div>
+				</li>
+			`;
+			
+			// Add new review to the top of the list
+			const reviewsList = document.querySelector('.comments-list');
+			reviewsList.insertAdjacentHTML('afterbegin', newReview);
+			
+			// Limit to 10 visible reviews
+			const reviewItems = document.querySelectorAll('.comments-list > li');
+			if (reviewItems.length > 10) {
+				reviewItems[reviewItems.length - 1].remove();
+			}
+
+			// Clear form
+			document.getElementById('reviewForm').reset();
+		}
+
+		function generateStars(rating) {
+			return Array(5).fill().map((_, i) => 
+				`<i class="fas fa-star ${i < parseInt(rating) ? 'filled' : ''}"></i>`
+			).join('');
+		}
+
+		// Update character count
+		document.getElementById('review_desc').addEventListener('input', function() {
+			const remaining = 100 - this.value.length;
+			document.getElementById('chars').textContent = remaining;
+		});
+		</script>
+
+	</body>
+</html>
                       
                       	</body>
                       </html>
