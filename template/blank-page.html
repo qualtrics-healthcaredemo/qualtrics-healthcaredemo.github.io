@@ -21,6 +21,52 @@
 		<!-- Main CSS -->
 		<link rel="stylesheet" href="assets/css/style.css">
 	
+		<!-- Reviews CSS -->
+		<style>
+			.container {
+				border: 1px solid #ddd;
+				padding: 20px;
+				border-radius: 5px;
+				margin-top: 20px;
+			}
+			.rating {
+				display: flex;
+				align-items: center;
+				margin-bottom: 10px;
+			}
+			.stars {
+				color: gold;
+				font-size: 24px;
+				margin-right: 10px;
+			}
+			.summary {
+				font-size: 14px;
+				color: #666;
+				margin-bottom: 20px;
+			}
+			.search-box {
+				width: 100%;
+				padding: 10px;
+				margin-bottom: 20px;
+				border: 1px solid #ddd;
+				border-radius: 5px;
+			}
+			.review {
+				border-bottom: 1px solid #eee;
+				padding-bottom: 10px;
+				margin-bottom: 10px;
+			}
+			.review-header {
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: 5px;
+			}
+			.show-more {
+				text-align: center;
+				color: #0066cc;
+				cursor: pointer;
+			}
+		</style>
 	</head>
 	<body>
 
@@ -213,18 +259,53 @@
 			</div>
 			<!-- /Breadcrumb -->
 			
-			<!-- Page Content -->
-			<div class="content">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-12">
-							<h5>Blank Page</h5>
-						</div>
-					</div>
-				</div>
-
-			</div>		
-			<!-- /Page Content -->
+<!-- Page Content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="container">
+                    <h2>Ratings & Reviews</h2>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span>5 out of 5</span>
+                        <span style="margin-left: 10px;">76 ratings, 25 reviews</span>
+                    </div>
+                    <p class="summary">
+                        Our patient experience surveys, conducted by the independent research firm Qualtrics, present a thorough and accurate picture for patients and their families. Using national best practices, we have developed an initiative to provide patient experience ratings for select Intermountain Health providers. For more information, please visit <a href="https://treadhealth.com/about-star-ratings">https://treadhealth.com/about-star-ratings</a>
+                    </p>
+                    <input type="text" class="search-box" placeholder="Search reviews">
+                    <div class="review">
+                        <div class="review-header">
+                            <span class="stars">★★★★★</span>
+                            <span>5 out of 5</span>
+                            <span>Reviewed on 03/15/2025</span>
+                        </div>
+                        <p>Dr. Elder was incredibly attentive and made me feel at ease throughout my visit. Highly recommended!</p>
+                    </div>
+                    <div class="review">
+                        <div class="review-header">
+                            <span class="stars">★★★★★</span>
+                            <span>5 out of 5</span>
+                            <span>Reviewed on 02/28/2025</span>
+                        </div>
+                        <p>Excellent care from Dr. Elder. Very knowledgeable and took the time to explain everything thoroughly.</p>
+                    </div>
+                    <div class="review">
+                        <div class="review-header">
+                            <span class="stars">★★★★★</span>
+                            <span>5 out of 5</span>
+                            <span>Reviewed on 01/10/2025</span>
+                        </div>
+                        <p>Dr. Elder's expertise is unmatched. I felt well cared for and confident in the treatment plan.</p>
+                    </div>
+                    <div class="show-more">Show more</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Page Content --> 
    
 			<!-- Footer -->
 			<footer class="footer">
