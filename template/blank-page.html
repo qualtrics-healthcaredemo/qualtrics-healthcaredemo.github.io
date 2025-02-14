@@ -1,234 +1,263 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Dr. Felix J. Cullen, MD - Cardiologist</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    
-    <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    
-    <!-- Fontawesome CSS -->
-    <link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
-    <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+	<head>
+		<meta charset="utf-8">
+		<title>Dr. Felix Cullen, MD - Cardiologist</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+		
+		<!-- Favicons -->
+		<link href="assets/img/favicon.png" rel="icon">
+		
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		
+		<!-- Fontawesome CSS -->
+		<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
+		<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
 
-    <!-- Feathericon CSS -->
-    <link rel="stylesheet" href="assets/css/feather.css">
-    
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+		<!-- Feathericon CSS -->
+    	<link rel="stylesheet" href="assets/css/feather.css">
+		
+		<!-- Fancybox CSS -->
+		<link rel="stylesheet" href="assets/plugins/fancybox/jquery.fancybox.min.css">
+		
+		<!-- Main CSS -->
+		<link rel="stylesheet" href="assets/css/style.css">
+		
+		<!-- Custom CSS for Reviews -->
+		<style>
+			.container {
+				border: 1px solid #ddd;
+				padding: 20px;
+				border-radius: 5px;
+				margin-top: 20px;
+			}
+			.rating {
+				display: flex;
+				align-items: center;
+				margin-bottom: 10px;
+			}
+			.stars {
+				color: gold;
+				font-size: 24px;
+				margin-right: 10px;
+			}
+			.summary {
+				font-size: 14px;
+				color: #666;
+				margin-bottom: 20px;
+			}
+			.search-box {
+				width: 100%;
+				padding: 10px;
+				margin-bottom: 20px;
+				border: 1px solid #ddd;
+				border-radius: 5px;
+			}
+			.review {
+				border-bottom: 1px solid #eee;
+				padding-bottom: 10px;
+				margin-bottom: 10px;
+			}
+			.review-header {
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: 5px;
+			}
+			.show-more {
+				text-align: center;
+				color: #0066cc;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
 
-    <!-- Custom CSS for this page -->
-    <style>
-        .doctor-profile {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 20px;
-        }
-        .doctor-info {
-            display: flex;
-            align-items: start;
-        }
-        .doctor-image {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            margin-right: 20px;
-        }
-        .doctor-details h2 {
-            margin: 0;
-            font-size: 24px;
-        }
-        .accepting-patients {
-            background-color: #e6f3ff;
-            color: #0066cc;
-            padding: 5px 10px;
-            display: inline-block;
-            margin-top: 10px;
-        }
-        .schedule-appointment {
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 5px;
-            text-align: center;
-        }
-        .schedule-btn {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .info-tiles {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .info-tile {
-            background-color: #f8f9fa;
-            padding: 15px;
-            border-radius: 5px;
-            width: calc(25% - 15px);
-        }
-        .about-section {
-            margin-top: 40px;
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .about-section h2 {
-            margin-bottom: 15px;
-        }
-        .about-section h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-        .container {
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-        .rating {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        .stars {
-            color: gold;
-            font-size: 24px;
-            margin-right: 10px;
-        }
-        .summary {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 20px;
-        }
-        .search-box {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        .review {
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
-            margin-bottom: 10px;
-        }
-        .review-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
-        }
-        .show-more {
-            text-align: center;
-            color: #0066cc;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="doctor-profile">
-            <div class="doctor-info">
-                <img src="https://raw.githubusercontent.com/treadhealth/jekyll-test-1/main/assets/img/doctors/doctor-thumb-02.jpg" alt="Dr. Felix J. Cullen" class="doctor-image">
-                <div class="doctor-details">
-                    <h2><strong>Felix J. Cullen, MD</strong></h2>
-                    <p>Cardiology</p>
-                    <div class="accepting-patients">Accepting New Patients</div>
-                </div>
-            </div>
-            <div class="schedule-appointment">
-                <h3>Schedule Appointment</h3>
-                <button class="schedule-btn">Schedule Appointment</button>
-                <p>Need help scheduling? Call 111-222-3456</p>
-            </div>
-        </div>
+		<!-- Main Wrapper -->
+		<div class="main-wrapper">
+		
+			<!-- Header -->
+			<header class="header">
+				<!-- Your existing header code -->
+			</header>
+			<!-- /Header -->
+			
+			<!-- Breadcrumb -->
+			<div class="breadcrumb-bar">
+				<div class="container-fluid">
+					<div class="row align-items-center">
+						<div class="col-md-12 col-12">
+							<nav aria-label="breadcrumb" class="page-breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Doctor Profile</li>
+								</ol>
+							</nav>
+							<h2 class="breadcrumb-title">Doctor Profile</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /Breadcrumb -->
+			
+			<!-- Page Content -->
+			<div class="content">
+				<div class="container">
 
-        <div class="info-tiles">
-            <div class="info-tile">
-                <h3>Hospital Affiliation</h3>
-                <p>Tread North, Tread Main Campus, Tread West</p>
-            </div>
-            <div class="info-tile">
-                <h3><i class="fas fa-star"></i> 5 out of 5</h3>
-                <p>76 ratings, 25 reviews</p>
-            </div>
-            <div class="info-tile">
-                <h3>Ages Seen</h3>
-                <p>Older Adult >55</p>
-            </div>
-            <div class="info-tile">
-                <h3>Languages</h3>
-                <p>English & Spanish</p>
-            </div>
-        </div>
+					<!-- Doctor Widget -->
+					<div class="card">
+						<div class="card-body">
+							<div class="doctor-widget">
+								<div class="doc-info-left">
+									<div class="doctor-img">
+										<img src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid" alt="User Image">
+									</div>
+									<div class="doc-info-cont">
+										<h4 class="doc-name">Felix Cullen, MD</h4>
+										<p class="doc-speciality">Languages Spoken: English</p>
+										<p class="doc-department"><img src="assets/img/specialities/specialities-05.png" class="img-fluid" alt="Speciality">Cardiologist</p>
+										<div class="rating">
+											<i class="fas fa-star filled"></i>
+											<i class="fas fa-star filled"></i>
+											<i class="fas fa-star filled"></i>
+											<i class="fas fa-star filled"></i>
+											<i class="fas fa-star filled"></i>
+											<span class="d-inline-block average-rating">(5 out of 5) 75 Ratings, 25 Reviews</span>
+										</div>
+										<!-- Rest of the doctor info -->
+									</div>
+								</div>
+								<div class="doc-info-right">
+									<!-- Right side doctor info -->
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /Doctor Widget -->
+					
+					<!-- Doctor Details Tab -->
+					<div class="card">
+						<div class="card-body pt-0">
+						
+							<!-- Tab Menu -->
+							<nav class="user-tabs mb-4">
+								<ul class="nav nav-tabs nav-tabs-bottom nav-justified">
+									<li class="nav-item">
+										<a class="nav-link active" href="#doc_overview" data-bs-toggle="tab">Overview</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#doc_locations" data-bs-toggle="tab">Locations</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#doc_reviews" data-bs-toggle="tab">Reviews</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#doc_business_hours" data-bs-toggle="tab">Business Hours</a>
+									</li>
+								</ul>
+							</nav>
+							<!-- /Tab Menu -->
+							
+							<!-- Tab Content -->
+							<div class="tab-content pt-0">
+							
+								<!-- Overview Content -->
+								<div role="tabpanel" id="doc_overview" class="tab-pane fade show active">
+									<!-- Overview content -->
+								</div>
+								<!-- /Overview Content -->
+								
+								<!-- Locations Content -->
+								<div role="tabpanel" id="doc_locations" class="tab-pane fade">
+									<!-- Locations content -->
+								</div>
+								<!-- /Locations Content -->
+								
+								<!-- Reviews Content -->
+								<div role="tabpanel" id="doc_reviews" class="tab-pane fade">
+									<div class="content">
+										<div class="container-fluid">
+											<div class="row">
+												<div class="col-12">
+													<div class="container">
+														<h2>Ratings & Reviews</h2>
+														<div class="rating">
+															<span class="stars">★★★★★</span>
+															<span>5 out of 5</span>
+															<span style="margin-left: 10px;">76 ratings, 25 reviews</span>
+														</div>
+														<p class="summary">
+															Our patient experience surveys, conducted by the independent research firm Qualtrics, present a thorough and accurate picture for patients and their families. Using national best practices, we have developed an initiative to provide patient experience ratings for select Intermountain Health providers. For more information, please visit <a href="https://treadhealth.com/about-star-ratings">https://treadhealth.com/about-star-ratings</a>
+														</p>
+														<input type="text" class="search-box" placeholder="Search reviews">
+														<div class="review">
+															<div class="review-header">
+																<span class="stars">★★★★★</span>
+																<span>5 out of 5</span>
+																<span>Reviewed on 03/15/2025</span>
+															</div>
+															<p>Dr. Cullen was incredibly attentive and made me feel at ease throughout my visit. Highly recommended!</p>
+														</div>
+														<div class="review">
+															<div class="review-header">
+																<span class="stars">★★★★★</span>
+																<span>5 out of 5</span>
+																<span>Reviewed on 02/28/2025</span>
+															</div>
+															<p>Excellent care from Dr. Cullen. Very knowledgeable and took the time to explain everything thoroughly.</p>
+														</div>
+														<div class="review">
+															<div class="review-header">
+																<span class="stars">★★★★★</span>
+																<span>5 out of 5</span>
+																<span>Reviewed on 01/10/2025</span>
+															</div>
+															<p>Dr. Cullen's expertise is unmatched. I felt well cared for and confident in the treatment plan.</p>
+														</div>
+														<div class="show-more">Show more</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- /Reviews Content -->
+								
+								<!-- Business Hours Content -->
+								<div role="tabpanel" id="doc_business_hours" class="tab-pane fade">
+									<!-- Business hours content -->
+								</div>
+								<!-- /Business Hours Content -->
+								
+							</div>
+						</div>
+					</div>
+					<!-- /Doctor Details Tab -->
 
-        <div class="about-section">
-            <h2>About Dr. Felix Cullen</h2>
-            <h3>About the provider</h3>
-            <p>Felix J. Cullen, MD, is a dedicated cardiologist at Tread Health's Southwest Cardiology clinic in St. George. He supports patients in St. George and surrounding communities, focusing on general cardiology, metabolic health, and obesity management. He believes in empowering patients by providing clear information about their conditions and the benefits and risks of various treatments, allowing them to make informed decisions about their health. Dr. Cullen emphasizes the importance of proper nutrition and regular exercise as essential components for overall health and longevity.</p>
-            <p>Dr. Cullen is committed to giving honest answers based on his knowledge and experience. He follows national guidelines for treatment recommendations and only suggests tests when they will impact the treatment plan. Fluent in Spanish, he ensures that language is never a barrier to quality care.</p>
-            <p>Outside work, the Preston, Idaho native enjoys riding his bike and spending time outdoors with his wife and their two dogs. A lifelong learner, he loves reading and is always open to book recommendations or exploring new places. Dr. Cullen and his wife have been married for over 30 years and are proud parents of three adult children.</p>
-        </div>
-
-        <div class="reviews-section">
-            <h2>Ratings & Reviews</h2>
-            <div class="rating">
-                <span class="stars">★★★★★</span>
-                <span>5 out of 5</span>
-                <span style="margin-left: 10px;">76 ratings, 25 reviews</span>
-            </div>
-            <p class="summary">
-                Our patient experience surveys, conducted by the independent research firm Qualtrics, present a thorough and accurate picture for patients and their families. Using national best practices, we have developed an initiative to provide patient experience ratings for select Tread Health providers. For more information, please visit <a href="https://treadhealth.com/about-star-ratings">https://treadhealth.com/about-star-ratings</a>
-            </p>
-            <input type="text" class="search-box" placeholder="Search reviews">
-            <div class="review">
-                <div class="review-header">
-                    <span class="stars">★★★★★</span>
-                    <span>5 out of 5</span>
-                    <span>Reviewed on 03/15/2025</span>
-                </div>
-                <p>Dr. Cullen was incredibly attentive and made me feel at ease throughout my visit. Highly recommended!</p>
-            </div>
-            <div class="review">
-                <div class="review-header">
-                    <span class="stars">★★★★★</span>
-                    <span>5 out of 5</span>
-                    <span>Reviewed on 02/28/2025</span>
-                </div>
-                <p>Excellent care from Dr. Cullen. Very knowledgeable and took the time to explain everything thoroughly.</p>
-            </div>
-            <div class="review">
-                <div class="review-header">
-                    <span class="stars">★★★★★</span>
-                    <span>5 out of 5</span>
-                    <span>Reviewed on 01/10/2025</span>
-                </div>
-                <p>Dr. Cullen's expertise is unmatched. I felt well cared for and confident in the treatment plan.</p>
-            </div>
-            <div class="show-more">Show more</div>
-        </div>
-    </div>
-
-    <!-- jQuery -->
-    <script src="assets/js/jquery-3.6.0.min.js"></script>
-    
-    <!-- Bootstrap Core JS -->
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Feather Icon JS -->
-    <script src="assets/js/feather.min.js"></script>
-    
-    <!-- Custom JS -->
-    <script src="assets/js/script.js"></script>
-</body>
+				</div>
+			</div>		
+			<!-- /Page Content -->
+   
+			<!-- Footer -->
+			<footer class="footer">
+				<!-- Your existing footer code -->
+			</footer>
+			<!-- /Footer -->
+		   
+		</div>
+		<!-- /Main Wrapper -->
+	  
+		<!-- jQuery -->
+		<script src="assets/js/jquery-3.6.0.min.js"></script>
+		
+		<!-- Bootstrap Core JS -->
+		<script src="assets/js/bootstrap.bundle.min.js"></script>
+		
+		<!-- Fancybox JS -->
+		<script src="assets/plugins/fancybox/jquery.fancybox.min.js"></script>
+		
+		<!-- Custom JS -->
+		<script src="assets/js/script.js"></script>
+		
+	</body>
 </html>
