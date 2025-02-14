@@ -25,8 +25,13 @@
     <style>
         .doctor-profile {
             display: flex;
+            justify-content: space-between;
             align-items: start;
             margin-bottom: 20px;
+        }
+        .doctor-info {
+            display: flex;
+            align-items: start;
         }
         .doctor-image {
             width: 150px;
@@ -34,7 +39,7 @@
             object-fit: cover;
             margin-right: 20px;
         }
-        .doctor-info h2 {
+        .doctor-details h2 {
             margin: 0;
             font-size: 24px;
         }
@@ -44,18 +49,6 @@
             padding: 5px 10px;
             display: inline-block;
             margin-top: 10px;
-        }
-        .info-tiles {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .info-tile {
-            background-color: #f8f9fa;
-            padding: 15px;
-            border-radius: 5px;
-            width: calc(33.333% - 14px);
         }
         .schedule-appointment {
             background-color: #f8f9fa;
@@ -71,8 +64,21 @@
             border-radius: 5px;
             cursor: pointer;
         }
+        .info-tiles {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .info-tile {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            width: calc(25% - 15px);
+        }
         .about-section {
             margin-top: 40px;
+            background-color: white;
         }
         /* Reviews CSS */
         .container {
@@ -123,11 +129,18 @@
 <body>
     <div class="container">
         <div class="doctor-profile">
-            <img src="https://example.com/doctor-image.jpg" alt="Dr. Felix J. Cullen" class="doctor-image">
             <div class="doctor-info">
-                <h2><strong>Felix J. Cullen, MD</strong></h2>
-                <p>Cardiology</p>
-                <div class="accepting-patients">Accepting New Patients</div>
+                <img src="https://example.com/doctor-image.jpg" alt="Dr. Felix J. Cullen" class="doctor-image">
+                <div class="doctor-details">
+                    <h2><strong>Felix J. Cullen, MD</strong></h2>
+                    <p>Cardiology</p>
+                    <div class="accepting-patients">Accepting New Patients</div>
+                </div>
+            </div>
+            <div class="schedule-appointment">
+                <h3>Schedule Appointment</h3>
+                <button class="schedule-btn">Schedule Appointment</button>
+                <p>Need help scheduling? Call 111-222-3456</p>
             </div>
         </div>
 
@@ -147,15 +160,6 @@
             <div class="info-tile">
                 <h3>Languages</h3>
                 <p>English & Spanish</p>
-            </div>
-            <div class="info-tile">
-                <h3>Gender</h3>
-                <p>Male</p>
-            </div>
-            <div class="info-tile schedule-appointment">
-                <h3>Schedule Appointment</h3>
-                <button class="schedule-btn">Schedule Appointment</button>
-                <p>Need help scheduling? Call 111-222-3456</p>
             </div>
         </div>
 
