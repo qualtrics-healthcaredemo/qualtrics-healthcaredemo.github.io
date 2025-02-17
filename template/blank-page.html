@@ -297,7 +297,7 @@ try{(new g(100,"r","QSI_S_ZN_5sRdYBSo6nSAxAq","https://zn5srdybso6nsaxaq-qhealth
 											<i class="fas fa-star filled"></i>
 											<i class="fas fa-star filled"></i>
 											<i class="fas fa-star filled"></i>
-    											<a href="#doc_reviews" class="d-inline-block average-rating" id="show-reviews">(5 out of 5) 76 Ratings, 25 Reviews</a>
+   											<a href="#doc_reviews" class="d-inline-block average-rating" id="show-reviews">(5 out of 5) 76 Ratings, 25 Reviews</a>
 										</div>
 										<div class="clinic-details">
 											<p class="doc-location"><i class="fas fa-map-marker-alt"></i> Salt Lake City, USA - <a href="javascript:void(0);">Get Directions</a></p>
@@ -1017,13 +1017,12 @@ try{(new g(100,"r","QSI_S_ZN_5sRdYBSo6nSAxAq","https://zn5srdybso6nsaxaq-qhealth
 
 		<!-- New script for review link functionality -->
 		<script>
-			document.addEventListener('DOMContentLoaded', function() {
-				document.getElementById('show-reviews').addEventListener('click', function(e) {
-					e.preventDefault();
-					// Find the Reviews tab and click it
-					document.querySelector('a[href="#doc_reviews"]').click();
-				});
-			});
+		    $(document).ready(function() {
+		        $('#show-reviews').on('click', function(e) {
+		            e.preventDefault();
+		            $('a[href="#doc_reviews"]').tab('show');
+		        });
+		    });
 		</script>
 
 	</body>
