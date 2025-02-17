@@ -1018,21 +1018,25 @@ try{(new g(100,"r","QSI_S_ZN_5sRdYBSo6nSAxAq","https://zn5srdybso6nsaxaq-qhealth
 		<!-- New script for review link functionality -->
 		<script>
 		    $(document).ready(function() {
-		        var showReviews = document.getElementById('show-reviews');
-		        if (showReviews) {
-		            showReviews.addEventListener('click', function(e) {
-		                e.preventDefault();
-		                console.log('Review link clicked');
-		                var reviewsTab = document.querySelector('a[href="#doc_reviews"]');
-		                if (reviewsTab) {
-		                    reviewsTab.click();
-		                } else {
-		                    console.log('Reviews tab not found');
-		                }
-		            });
-		        } else {
-		            console.log('show-reviews element not found');
-		        }
+		        $('#show-reviews').on('click', function(e) {
+		            e.preventDefault();
+		            console.log('Review link clicked');
+		            
+		            // Hide all tab content
+		            $('.tab-pane').removeClass('show active');
+		            
+		            // Show reviews tab content
+		            $('#doc_reviews').addClass('show active');
+		            
+		            // Update tab navigation
+		            $('.nav-tabs .nav-link').removeClass('active');
+		            $('a[href="#doc_reviews"]').addClass('active');
+		            
+		            // Scroll to reviews section
+		            $('html, body').animate({
+		                scrollTop: $('#doc_reviews').offset().top
+		            }, 500);
+		        });
 		    });
 		</script>
 
