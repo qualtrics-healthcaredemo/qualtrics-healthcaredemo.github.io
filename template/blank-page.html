@@ -1018,25 +1018,21 @@ try{(new g(100,"r","QSI_S_ZN_5sRdYBSo6nSAxAq","https://zn5srdybso6nsaxaq-qhealth
 		<!-- Debug -->
 		<script>
 		document.addEventListener('DOMContentLoaded', function() {
-		    $('a[data-bs-toggle="tab"]').on('click', function(e) {
-		        console.log('Tab clicked:', this.href);
-		    }).on('shown.bs.tab', function(e) {
-		        console.log('Tab shown:', e.target.getAttribute('href'));
+		    $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+		        console.log('Tab switched to:', e.target.getAttribute('href'));
 		    });
 		
-		    $.fn.slick = function() {
-		        console.log('Slick called on:', this.selector);
-			console.log('Slick called from:', new Error().stack);
-		        console.trace();
-		        return this;
-		    };
-		
-		    // Intercept jQuery's on method to log event bindings
-		    var originalOn = $.fn.on;
-		    $.fn.on = function() {
-		        console.log('Event bound:', arguments[0], 'to', this.selector);
-		        return originalOn.apply(this, arguments);
-		    };
+		    // Create a proxy for jQuery's prototype
+		    var originalFn = $.fn;
+		    $.fn = new Proxy(originalFn, {
+		        get: function(target, property) {
+		            if (!(property in target)) {
+		                console.log('Attempted to call non-existent method:', property);
+		                return function() { return this; };
+		            }
+		            return target[property];
+		        }
+		    });
 		});
 		</script>
 
