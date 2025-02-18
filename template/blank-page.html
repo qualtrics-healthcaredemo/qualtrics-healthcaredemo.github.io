@@ -1015,26 +1015,5 @@ try{(new g(100,"r","QSI_S_ZN_5sRdYBSo6nSAxAq","https://zn5srdybso6nsaxaq-qhealth
 		<!-- Custom JS -->
 		<script src="assets/js/script.js"></script>
 
-		<!-- Debug -->
-		<script>
-		document.addEventListener('DOMContentLoaded', function() {
-		    $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
-		        console.log('Tab switched to:', e.target.getAttribute('href'));
-		    });
-		
-		    // Create a proxy for jQuery's prototype
-		    var originalFn = $.fn;
-		    $.fn = new Proxy(originalFn, {
-		        get: function(target, property) {
-		            if (!(property in target)) {
-		                console.log('Attempted to call non-existent method:', property);
-		                return function() { return this; };
-		            }
-		            return target[property];
-		        }
-		    });
-		});
-		</script>
-
 	</body>
 </html>
