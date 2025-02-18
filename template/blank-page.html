@@ -1015,16 +1015,27 @@ try{(new g(100,"r","QSI_S_ZN_5sRdYBSo6nSAxAq","https://zn5srdybso6nsaxaq-qhealth
 		<!-- Custom JS -->
 		<script src="assets/js/script.js"></script>
 
-		<!-- Debugging Script -->
+		<!-- Debug -->
+
 		<script>
 		document.addEventListener('DOMContentLoaded', function() {
-		    $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
-		        console.log('Tab switched');
+		    $('a[data-bs-toggle="tab"]').on('click', function(e) {
+		        console.log('Tab clicked:', this.href);
+		    }).on('shown.bs.tab', function(e) {
+		        console.log('Tab shown:', e.target.getAttribute('href'));
 		    });
 		
-		    $.fn.slick = $.fn.slick || function() { 
-		        console.log('Slick function called');
+		    $.fn.slick = function() {
+		        console.log('Slick called on:', this.selector);
 		        console.trace();
+		        return this;
+		    };
+		
+		    // Intercept jQuery's on method to log event bindings
+		    var originalOn = $.fn.on;
+		    $.fn.on = function() {
+		        console.log('Event bound:', arguments[0], 'to', this.selector);
+		        return originalOn.apply(this, arguments);
 		    };
 		});
 		</script>
