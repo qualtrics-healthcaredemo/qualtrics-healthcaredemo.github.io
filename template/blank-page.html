@@ -1016,7 +1016,6 @@ try{(new g(100,"r","QSI_S_ZN_5sRdYBSo6nSAxAq","https://zn5srdybso6nsaxaq-qhealth
 		<script src="assets/js/script.js"></script>
 
 		<!-- Debug -->
-
 		<script>
 		document.addEventListener('DOMContentLoaded', function() {
 		    $('a[data-bs-toggle="tab"]').on('click', function(e) {
@@ -1027,6 +1026,7 @@ try{(new g(100,"r","QSI_S_ZN_5sRdYBSo6nSAxAq","https://zn5srdybso6nsaxaq-qhealth
 		
 		    $.fn.slick = function() {
 		        console.log('Slick called on:', this.selector);
+			console.log('Slick called from:', new Error().stack);
 		        console.trace();
 		        return this;
 		    };
